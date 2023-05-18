@@ -1,7 +1,8 @@
 import React from "react";
-import PlanDetailsStyle from "@styled/PlanDetails";
+import PropTypes from "prop-types";
+import PlanDetailsStyle from "@src/styled/PlanDetails.style";
 
-function PlanDetails(props) {
+const PlanDetails = (props) => {
   return (
     <PlanDetailsStyle width={props.width}>
       <label className="planUse">Plan Uses</label>
@@ -11,5 +12,9 @@ function PlanDetails(props) {
     </PlanDetailsStyle>
   );
 }
+
+PlanDetails.propTypes = {
+  width: PropTypes.number.isRequired,
+};
 
 export default PlanDetails;

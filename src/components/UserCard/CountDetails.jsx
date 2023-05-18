@@ -1,19 +1,14 @@
 import React from "react";
-import CountDetailsStyle from "@styled/CountDetails";
+import CountDetailsStyle from "@src/styled/CountDetails.style";
+import { ClicksReviewed } from "@UserCard";
+import { MonthlyClicks } from "@UserCard";
 
-function CountDetails(props) {
-  const { currentPlanCount, totalPlanCount } = props;
+const CountDetails = ({ currentPlanCount, totalPlanCount }) => {
   return (
     <CountDetailsStyle>
-      <div className="reviewed">
-        <div className="currentPlanCountStyle">{currentPlanCount}</div>
-        <div className="clicksReviewed">clicks reviewed</div>
-      </div>
+      <ClicksReviewed currentPlanCount={currentPlanCount} />
       <div className="verticalLineStyle"></div>
-      <div className="monthsClicks">
-        <div className="totalPlanCountStyle">{totalPlanCount}</div>
-        <div className="monthlyClicks">Monthly clicks</div>
-      </div>
+      <MonthlyClicks totalPlanCount={totalPlanCount} />
     </CountDetailsStyle>
   );
 }

@@ -1,52 +1,25 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { fetchUsers } from "../../action/userAction";
-import UserListStyle from "@styled/UserList";
-import UserCard from "@UserList/UserCard";
-import Navbar from "@Navbar/Navbar";
-import { ButtonWrapper } from "../../styled/Button.style";
-import Button from "../NavigationButton/Button";
+import React from "react";
+import UserListStyle from "@src/styled/UserList.style";
+import UserCard from "@UserList/UserCardTable";
+import { USERLISTDATA } from "@src/constants/dummyData";
+import { Navbar } from "@src/components/Navbar/index";
 
-function UserList({ loading, users, error, fetchUsers }) {
-  useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
+const UserList = () => {
   return (
     <UserListStyle>
       <Navbar />
-      {users.map((user) => (
+      {USERLISTDATA.map((user) => (
         <UserCard
           key={user.id}
           id={user.id}
-          profile={user.avatar}
-          firstName={user.first_name}
-          lastName={user.last_name}
+          profile={user.profile}
+          firstName={user.firstName}
+          lastName={user.lastName}
           email={user.email}
         />
       ))}
-        <Button />
     </UserListStyle>
   );
 }
 
-const mapStateToProps = (state) => ({
-  loading: state.loading,
-  users: state.users,
-  error: state.error,
-});
-
-const mapDispatchToProps = {
-  fetchUsers,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserList);
-
+export default UserList;
