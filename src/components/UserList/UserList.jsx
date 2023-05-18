@@ -3,19 +3,22 @@ import { connect } from "react-redux";
 import { fetchUsers } from "@src/action/userAction";
 import UserListStyle from "@src/styled/UserList.style";
 import UserCard from "@UserList/UserCardTable";
-import {Navbar} from "@src/components/Navbar/index";
+import { Navbar } from "@src/components/Navbar/index";
 import Button from "@src/components/NavigationButton/Button";
 import { ButtonWrapper } from "@src/styled/Button.style";
 
 const UserList = ({ loading, users, error, fetchUsers }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 2;
 
   useEffect(() => {
     fetchUsers(currentPage);
   }, [fetchUsers, currentPage]);
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   if (loading) {
@@ -40,15 +43,15 @@ const UserList = ({ loading, users, error, fetchUsers }) => {
         />
       ))}
       <ButtonWrapper>
-      <Button
-        currentPage={currentPage}
-        totalPages={2} // Assuming there are only 2 pages in this example
-        onPageChange={handlePageChange}
-      />
+        <Button
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </ButtonWrapper>
     </UserListStyle>
   );
-}
+};
 
 const mapStateToProps = (state) => ({
   loading: state.loading,
