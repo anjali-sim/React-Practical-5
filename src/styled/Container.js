@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Style for the main container
 const ContainerStyle = styled.div`
   width: 72rem;
-  height: 34rem;
+  height: 36rem;
   display: flex;
   position: relative;
   top: 5rem;

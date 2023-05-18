@@ -4,6 +4,8 @@ import { fetchUsers } from "../../action/userAction";
 import UserListStyle from "@styled/UserList";
 import UserCard from "@UserList/UserCard";
 import Navbar from "@Navbar/Navbar";
+import { ButtonWrapper } from "../../styled/Button";
+import Button from "../NavigationButton/Button";
 
 function UserList({ loading, users, error, fetchUsers }) {
   useEffect(() => {
@@ -31,6 +33,7 @@ function UserList({ loading, users, error, fetchUsers }) {
           email={user.email}
         />
       ))}
+        <Button />
     </UserListStyle>
   );
 }
