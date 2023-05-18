@@ -1,25 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { fetchUsers } from "@src/action/userAction";
 import UserListStyle from "@src/styled/UserList.style";
 import UserCard from "@UserList/UserCardTable";
-import { USERLISTDATA } from "@src/constants/dummyData";
-import { Navbar } from "@src/components/Navbar/index";
+import {Navbar} from "@src/components/Navbar/index";
+import Button from "@src/components/NavigationButton/Button";
+import { ButtonWrapper } from "@src/styled/Button.style";
 
-const UserList = () => {
+const UserList = ({ loading, users, error, fetchUsers }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    fetchUsers(currentPage);
+  }, [fetchUsers, currentPage]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
   return (
     <UserListStyle>
       <Navbar />
-      {USERLISTDATA.map((user) => (
+      {users.map((user) => (
         <UserCard
           key={user.id}
           id={user.id}
-          profile={user.profile}
-          firstName={user.firstName}
-          lastName={user.lastName}
+          profile={user.avatar}
+          firstName={user.first_name}
+          lastName={user.last_name}
           email={user.email}
         />
       ))}
+      <ButtonWrapper>
+      <Button
+        currentPage={currentPage}
+        totalPages={2} // Assuming there are only 2 pages in this example
+        onPageChange={handlePageChange}
+      />
+      </ButtonWrapper>
     </UserListStyle>
   );
 }
 
-export default UserList;
+const mapStateToProps = (state) => ({
+  loading: state.loading,
+  users: state.users,
+  error: state.error,
+});
+
+const mapDispatchToProps = {
+  fetchUsers,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserList);

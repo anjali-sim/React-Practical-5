@@ -1,17 +1,31 @@
-import React from 'react'
-import { ButtonLeftStyle } from '@styled/Button';
-import { ButtonRightStyle } from '@styled/Button';
-import { ButtonWrapper } from '@styled/Button';
+import React from "react";
+import { ButtonLeftStyle } from "@src/styled/Button.style";
+import { ButtonRightStyle } from "@src/styled/Button.style";
+import { ButtonWrapper } from "@src/styled/Button.style";
 
-function Button() {
+function Button({ currentPage, totalPages, onPageChange }) {
+  const handlePreviousPage = () => {
+    onPageChange(currentPage - 1);
+  };
+
+  const handleNextPage = () => {
+    onPageChange(currentPage + 1);
+  };
   return (
     <>
-    <ButtonWrapper>
-       <ButtonLeftStyle />
-      <ButtonRightStyle />
-    </ButtonWrapper>
+      <ButtonWrapper>
+        <ButtonLeftStyle
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        />
+        <span>{currentPage}</span> / <span>{totalPages}</span>
+        <ButtonRightStyle
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+        />
+      </ButtonWrapper>
     </>
-  )
+  );
 }
 
-export default Button
+export default Button;

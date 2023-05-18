@@ -25,7 +25,7 @@ export const fetchUsers = (page) => {
   return (dispatch) => {
     dispatch(fetchUsersRequest());
     axios
-      .get("https://reqres.in/api/users?page=1")
+      .get(`https://reqres.in/api/users?page=${page}`)
       .then((response) => {
         const users = response.data.data;
         dispatch(fetchUsersSuccess(users));
