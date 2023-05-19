@@ -12,10 +12,36 @@ export const Button = styled.div`
 
 export const ButtonRightStyle = styled(Button)`
   transform: rotate(135deg);
+
+  @media (max-width: 550px) {
+    width: 15px;
+    height: 15px;
+  }
+  @media (max-width: 400px) {
+    width: 13px;
+    height: 13px;
+  }
+  @media (max-width: 350px) {
+    width: 11px;
+    height: 11px;
+  }
 `;
 
 export const ButtonLeftStyle = styled(Button)`
   transform: rotate(-45deg);
+
+  @media (max-width: 550px) {
+    width: 15px;
+    height: 15px;
+  }
+  @media (max-width: 400px) {
+    width: 13px;
+    height: 13px;
+  }
+  @media (max-width: 350px) {
+    width: 11px;
+    height: 11px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -42,6 +68,15 @@ export const ButtonWrapper = styled.div`
     left: 100px;
   }
   @media (max-width: 500px) {
-    left: 17px;
+    left: 85px;
+  }
+  @media (max-width: 450px) {
+    left: 73px;
+  }
+  @media (max-width: 400px) {
+    left: 60px;
+  }
+  @media (max-width: 350px) {
+    left: 53px;
   }
 `;
