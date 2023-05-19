@@ -32,7 +32,7 @@ const UserList = ({ loading, users, error, fetchUsers }) => {
   return (
     <UserListStyle>
       <Navbar />
-      {users.map((user) => (
+      {users?.map((user) => (
         <UserCard
           key={user.id}
           id={user.id}
@@ -53,10 +53,10 @@ const UserList = ({ loading, users, error, fetchUsers }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  loading: state.loading,
-  users: state.users,
-  error: state.error,
+const mapStateToProps = (state, action) => ({
+loading: state.user.loading,
+  users: state.user1.users,
+  error: state.user2.error,
 });
 
 const mapDispatchToProps = {
