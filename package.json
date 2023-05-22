@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "env-cmd": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
@@ -21,9 +22,11 @@
     "styled-components": "^6.0.0-rc.1"
   },
   "devDependencies": {
+    "@rollup/plugin-replace": "^5.0.2",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
+    "dotenv": "^16.0.3",
     "eslint": "^8.38.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-react": "^7.32.2",

@@ -1,8 +1,14 @@
 import axios from "axios";
 
-// used axios to get the API
+const baseURL = import.meta.env.VITE_API_BASE_URL;
+
+const instance = axios.create({
+  baseURL,
+});
+
 const fetchUsersFromApi = (page) => {
-  return axios.get(`https://reqres.in/api/users?page=${page}`);
+  console.log(baseURL);
+  return instance.get(`users?page=${page}`);
 };
 
 export default fetchUsersFromApi;

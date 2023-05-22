@@ -31,7 +31,7 @@ export const fetchUsers = (page) => {
     } catch (error) {
       dispatch(fetchUsersFailure(error.message));
     } finally {
-      console.log("Fetch Users Completed");
+      console.log("Users fetched successfully");
     }
   };
 };
