@@ -5,7 +5,7 @@ import GlobalStyle from "@src/styled/GlobalStyle.style";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { rootReducer } from "./reducer/userReducer.js";
+import { rootReducer } from "@src/reducer/userReducer.js";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

@@ -1,4 +1,4 @@
-import fetchUsersFromApi from "../utils/api";
+import fetchUsersFromApi from "@src/utils/api";
 import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
