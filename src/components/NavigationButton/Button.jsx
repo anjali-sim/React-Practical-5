@@ -27,7 +27,7 @@ const Button = ({ currentPage, totalPages, onPageChange }) => {
       </ButtonWrapper>
     </>
   );
-}
+};
 
 Button.propTypes = {
   currentPage: PropTypes.number.isRequired,

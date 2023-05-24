@@ -3,7 +3,6 @@ import {
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
 } from "@src/actions/actionTypes";
-import { combineReducers } from "redux";
 
 // Initial state
 const initialState = {
@@ -12,7 +11,8 @@ const initialState = {
   error: "",
 };
 
-const userRequestReducer = (state = initialState, action) => {
+// Reducer function
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_USERS_REQUEST:
       return {
@@ -21,31 +21,11 @@ const userRequestReducer = (state = initialState, action) => {
         error: "",
       };
     case FETCH_USERS_SUCCESS:
-    case FETCH_USERS_FAILURE:
-      return {
-        ...state,
-        loading: false,
-      };
-    default:
-      return state;
-  }
-};
-
-const userSuccessReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case FETCH_USERS_SUCCESS:
       return {
         ...state,
         loading: false,
         users: action.payload,
       };
-    default:
-      return state;
-  }
-};
-
-const userFailureReducer = (state = initialState, action) => {
-  switch (action.type) {
     case FETCH_USERS_FAILURE:
       return {
         ...state,
@@ -57,8 +37,4 @@ const userFailureReducer = (state = initialState, action) => {
   }
 };
 
-export const rootReducer = combineReducers({
-  user: userRequestReducer,
-  user1: userSuccessReducer,
-  user2: userFailureReducer,
-});
+export default userReducer;
