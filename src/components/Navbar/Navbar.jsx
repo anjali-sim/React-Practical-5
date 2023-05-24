@@ -9,6 +9,6 @@ const Navbar = () => {
       <div className="accessStyle">Access</div>
     </NavbarStyle>
   );
-}
+};
 
 export default Navbar;
