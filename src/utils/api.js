@@ -1,13 +1,11 @@
 import axios from "axios";
-
-const baseURL = import.meta.env.VITE_API_BASE_URL;
+import { baseURL } from "@src/config/env";
 
 const instance = axios.create({
   baseURL,
 });
 
 const fetchUsersFromApi = (page) => {
-  console.log(baseURL);
   return instance.get(`users?page=${page}`);
 };
 

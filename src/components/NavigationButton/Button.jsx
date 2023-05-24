@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { ButtonLeftStyle } from "@src/styled/Button.style";
 import { ButtonRightStyle } from "@src/styled/Button.style";
 import { ButtonWrapper } from "@src/styled/Button.style";
 
-function Button({ currentPage, totalPages, onPageChange }) {
+const Button = ({ currentPage, totalPages, onPageChange }) => {
   const handlePreviousPage = () => {
     onPageChange(currentPage - 1);
   };
@@ -27,5 +28,11 @@ function Button({ currentPage, totalPages, onPageChange }) {
     </>
   );
 }
+
+Button.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+};
 
 export default Button;

@@ -2,7 +2,7 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
-} from "@src/action/actionTypes";
+} from "@src/actions/actionTypes";
 import { combineReducers } from "redux";
 
 // Initial state

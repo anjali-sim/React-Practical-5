@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchUsers } from "@src/action/userAction";
+import { fetchUsers } from "@src/actions/userAction";
 import UserListStyle from "@src/styled/UserList.style";
 import UserCard from "@UserList/UserCardTable";
 import { Navbar } from "@src/components/Navbar/index";
-import Button from "@src/components/NavigationButton/Button";
+import {Button} from "@src/components/NavigationButton/index";
 import { ButtonWrapper } from "@src/styled/Button.style";
 
-const UserList = ({ loading, users, error, fetchUsers }) => {
+const UserListWrap = ({ loading, users, error, fetchUsers }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 2;
 
@@ -63,4 +63,4 @@ const mapDispatchToProps = {
   fetchUsers,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserList);
+export default connect(mapStateToProps, mapDispatchToProps)(UserListWrap);
