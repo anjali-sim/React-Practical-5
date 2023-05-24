@@ -29,7 +29,7 @@ const UserDetailsCard = (props) => {
       />
     </UserDetailCardStyle>
   );
-}
+};
 
 UserDetailsCard.propTypes = {
   profile: PropTypes.string.isRequired,

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchUsers } from "@src/action/userAction";
+import { fetchUsers } from "@src/actions/userAction";
 import UserListStyle from "@src/styled/UserList.style";
 import UserCard from "@UserList/UserCardTable";
 import { Navbar } from "@src/components/Navbar/index";
-import Button from "@src/components/NavigationButton/Button";
+import { Button } from "@src/components/NavigationButton/index";
 import { ButtonWrapper } from "@src/styled/Button.style";
 
-const UserList = ({ loading, users, error, fetchUsers }) => {
+const UserListWrap = ({ loading, users, error, fetchUsers }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 2;
 
@@ -53,14 +54,21 @@ const UserList = ({ loading, users, error, fetchUsers }) => {
   );
 };
 
-const mapStateToProps = (state, action) => ({
-loading: state.user.loading,
-  users: state.user1.users,
-  error: state.user2.error,
+UserListWrap.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  users: PropTypes.array.isRequired,
+  error: PropTypes.string,
+  fetchUsers: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  loading: state.loading,
+  users: state.users,
+  error: state.error,
 });
 
 const mapDispatchToProps = {
   fetchUsers,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserList);
+export default connect(mapStateToProps, mapDispatchToProps)(UserListWrap);

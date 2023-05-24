@@ -11,7 +11,7 @@ const PlanDetails = (props) => {
       </div>
     </PlanDetailsStyle>
   );
-}
+};
 
 PlanDetails.propTypes = {
   width: PropTypes.number.isRequired,
