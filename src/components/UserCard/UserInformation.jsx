@@ -15,7 +15,7 @@ const UserInformation = (props) => {
       <button>Active User</button>
     </UserInformationStyle>
   );
-}
+};
 
 UserInformation.propTypes = {
   firstName: PropTypes.string.isRequired,

@@ -1,7 +1,7 @@
 import React from "react";
 import DropDownStyle from "@src/styled/DropDown.style";
 
-const DropDown = () => {
+const UserListDropDown = () => {
   return (
     <>
       <DropDownStyle>
@@ -17,4 +17,4 @@ const DropDown = () => {
   );
 };
 
-export default DropDown;
+export default UserListDropDown;

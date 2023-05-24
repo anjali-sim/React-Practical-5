@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Lock, Trash2 } from "react-feather";
-import DropDown from "@UserList";
+import { UserListDropDown } from "@src/components/Dropdown/index";
 import UserStyle, {
   NameWrapper,
   UserDetailsStyle,
@@ -31,7 +31,7 @@ const UserCardTable = (props) => {
 
   const restRows = (
     <>
-      <DropDown />
+      <UserListDropDown />
       <Trash2 color="#999999" />
     </>
   );
@@ -66,7 +66,7 @@ const UserCardTable = (props) => {
       )}
     </UserStyle>
   );
-}
+};
 
 UserCardTable.propTypes = {
   id: PropTypes.number.isRequired,
